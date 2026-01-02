@@ -1,0 +1,66 @@
+{
+  "rounds": [
+    {
+      "score": 75,
+      "mode": "all",
+      "details": "10 Rounds",
+      "date": "2026-01-02T16:21:27.080Z"
+    },
+    {
+      "score": 15,
+      "mode": "sub",
+      "details": "10 Rounds",
+      "date": "2026-01-02T15:41:35.592Z"
+    },
+    {
+      "score": 0,
+      "mode": "add",
+      "details": "1 Rounds",
+      "date": "2025-12-23T15:48:12.708Z"
+    },
+    {
+      "score": 0,
+      "mode": "add",
+      "details": "10 Rounds",
+      "date": "2026-01-02T15:06:52.420Z"
+    },
+    {
+      "score": -5,
+      "mode": "all",
+      "details": "5 Rounds",
+      "date": "2025-12-23T15:50:14.130Z"
+    }
+  ],
+  "time": [
+    {
+      "score": 95,
+      "mode": "mul",
+      "details": "60 Seconds",
+      "date": "2026-01-02T16:24:19.103Z"
+    },
+    {
+      "score": 35,
+      "mode": "all",
+      "details": "10 Seconds",
+      "date": "2026-01-02T15:05:17.465Z"
+    },
+    {
+      "score": -10,
+      "mode": "sub",
+      "details": "60 Seconds",
+      "date": "2026-01-02T16:39:04.724Z"
+    },
+    {
+      "score": -10,
+      "mode": "sub",
+      "details": "60 Seconds",
+      "date": "2026-01-02T16:39:04.729Z"
+    },
+    {
+      "score": -20,
+      "mode": "add",
+      "details": "5 Seconds",
+      "date": "2025-12-23T15:48:35.734Z"
+    }
+  ]
+}

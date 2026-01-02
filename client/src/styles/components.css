@@ -1,0 +1,129 @@
+/* Component Styles */
+
+/* Game Card */
+.game-card {
+    background: var(--color-surface);
+    border: var(--border-width-thick) solid var(--color-text-main);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-family-main);
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.game-card:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px;
+}
+
+.game-card:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.game-card.correct {
+    background: var(--color-success);
+    color: white;
+    border-color: #2E7D32;
+    box-shadow: 0px 0px 0px transparent;
+    transform: scale(1.05);
+}
+
+.game-card.wrong {
+    background: var(--color-error);
+    color: white;
+    border-color: #C62828;
+    animation: shake 0.4s ease-in-out;
+}
+
+.game-card.dim {
+    opacity: 0.3;
+    pointer-events: none;
+    background: #EEE;
+}
+
+/* Button */
+.btn {
+    background: var(--color-accent);
+    color: var(--color-text-main);
+    border: var(--border-width-thick) solid var(--color-text-main);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    font-family: var(--font-family-main);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.05);
+}
+
+.btn:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border-color: #B71C1C;
+}
+
+.btn-secondary {
+    background: var(--color-secondary);
+    color: white;
+    border-color: #00695C;
+}
+
+.btn:disabled {
+    background: #CCC;
+    border-color: #999;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Misc Utilities specific to components */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(2deg);
+    }
+
+    75% {
+        transform: translateX(-5px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

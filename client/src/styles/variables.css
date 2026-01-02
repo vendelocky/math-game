@@ -1,0 +1,45 @@
+:root {
+  /* Kid Friendly Palette */
+  --color-primary: #FF6B6B; /* Soft Red */
+  --color-secondary: #4ECDC4; /* Teal */
+  --color-accent: #FFE66D; /* Yellow */
+  --color-text-main: #2C3E50;
+  --color-text-light: #FFFFFF;
+  --color-background: #E0F7FA;
+  --color-surface: #FFFFFF;
+  
+  --color-success: #66BB6A;
+  --color-error: #EF5350;
+
+  /* Typography */
+  --font-family-main: 'Fredoka', 'Nunito', sans-serif;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 2.5rem;
+  --font-size-xl: 4rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Borders & Radius */
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1rem;
+  --border-radius-lg: 2rem;
+  --border-radius-full: 9999px;
+  
+  --border-width-thin: 2px;
+  --border-width-thick: 4px;
+
+  /* Shadows (Neubrutalism-ish) */
+  --shadow-sm: 2px 2px 0px rgba(0,0,0,0.15);
+  --shadow-md: 4px 4px 0px rgba(0,0,0,0.15);
+  --shadow-lg: 8px 8px 0px rgba(0,0,0,0.15);
+  
+  /* Animations */
+  --transition-fast: 0.2s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
