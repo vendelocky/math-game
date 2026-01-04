@@ -1,0 +1,68 @@
+# Math Game Project
+
+This project is a web and mobile-compatible math learning game designed for kids. It features various game modes including addition, subtraction, multiplication, division, and combination challenges.
+
+**This project was created using Google Antigravity.**
+
+## Tech Stack
+
+### Frontend (Client)
+- **Framework:** React 19
+- **Build Tool:** Vite
+- **Mobile Support:** Capacitor (Android)
+- **Real-time Communication:** Socket.io-client
+- **Styling:** CSS
+
+### Backend (Server)
+- **Runtime:** Node.js
+- **Framework:** Express
+- **Real-time Communication:** Socket.io
+- **Utilities:** CORS, Nodemon
+
+## How to Run
+
+### Prerequisites
+- Node.js and npm installed on your machine.
+
+### Step 1: Start the Server
+1. Open a terminal.
+2. Navigate to the `server` directory:
+   ```bash
+   cd server
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the server:
+   ```bash
+   npm start
+   ```
+   *Alternatively, for development with auto-restart:*
+   ```bash
+   npm run dev
+   ```
+   The server will run on the configured port (default is usually 3000 or 3001).
+
+### Step 2: Start the Client
+1. Open a new terminal instance.
+2. Navigate to the `client` directory:
+   ```bash
+   cd client
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open your browser and navigate to the URL shown in the terminal (usually `http://localhost:5173`).
+
+## Multiplayer
+
+This application is designed to support multiplayer functionality using Socket.io to allow users to play against each other in real-time.
+
+**Note: The multiplayer feature is currently disabled.** 
+While the architectural components (Socket.io on server and client) are present, the feature is not active in the current build. Future updates may re-enable and enhance this gameplay mode.
