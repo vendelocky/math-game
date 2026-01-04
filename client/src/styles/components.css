@@ -21,9 +21,11 @@
     overflow: hidden;
 }
 
-.game-card:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+@media (hover: hover) {
+    .game-card:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
 }
 
 .game-card:active:not(:disabled) {
@@ -73,10 +75,12 @@
     letter-spacing: 1px;
 }
 
-.btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    filter: brightness(1.05);
+@media (hover: hover) {
+    .btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        filter: brightness(1.05);
+    }
 }
 
 .btn:active:not(:disabled) {

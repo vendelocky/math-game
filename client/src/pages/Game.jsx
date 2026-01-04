@@ -12,6 +12,8 @@ const Game = ({ config, onEnd }) => {
     const [isGameOver, setIsGameOver] = useState(false);
     const [showExitConfirm, setShowExitConfirm] = useState(false);
 
+    const [playerName, setPlayerName] = useState('');
+
     // Game Loop Config
     const totalRounds = config.rounds || 10;
     const timeLimit = config.time || 60; // seconds
@@ -50,20 +52,43 @@ const Game = ({ config, onEnd }) => {
 
     const endGame = () => {
         setIsGameOver(true);
+    };
+
+    const submitScore = () => {
+        if (!playerName.trim()) return;
 
         // Save Score
         const details = config.gameType === 'rounds' ? `${config.rounds} Rounds` : `${config.time} Seconds`;
+        const scoreData = {
+            gameType: config.gameType,
+            score,
+            mode: config.mode,
+            details,
+            name: playerName.toUpperCase().slice(0, 3)
+        };
 
         fetch('http://localhost:3001/api/highscores', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                gameType: config.gameType,
-                score,
-                mode: config.mode,
-                details
+            body: JSON.stringify(scoreData)
+        })
+            .then(res => {
+                if (!res.ok) throw new Error('Server error');
             })
-        }).catch(err => console.error('Failed to save score:', err));
+            .catch(err => {
+                console.warn('Backend unavailable, saving to local storage:', err);
+                // Fallback: Save to Local Storage
+                try {
+                    const history = JSON.parse(localStorage.getItem('math-game-scores') || '[]');
+                    history.push({ ...scoreData, date: new Date().toISOString() });
+                    localStorage.setItem('math-game-scores', JSON.stringify(history));
+                } catch (e) {
+                    console.error('Failed to save locally:', e);
+                }
+            })
+            .finally(() => {
+                onEnd();
+            });
     };
 
     const handleGiveUp = () => setShowExitConfirm(true);
@@ -80,10 +105,41 @@ const Game = ({ config, onEnd }) => {
 
     if (isGameOver) {
         return (
-            <div className="flex-center" style={{ flexDirection: 'column', gap: '2rem' }}>
-                <h1>Game Over!</h1>
-                <h2>Score: {score}</h2>
-                <Button onClick={onEnd} variant="primary">Main Menu</Button>
+            <div className="flex-center" style={{ flexDirection: 'column', gap: '2rem', width: '100%', maxWidth: '400px', textAlign: 'center' }}>
+                <h1 style={{ color: 'var(--color-primary)', fontSize: '3rem' }}>Game Over!</h1>
+                <h2 style={{ fontSize: '2rem' }}>Score: {score}</h2>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+                    <label style={{ fontSize: '1.4rem', opacity: 0.8 }}>Enter your name (3 letters)</label>
+                    <input
+                        type="text"
+                        maxLength={3}
+                        value={playerName}
+                        onChange={(e) => setPlayerName(e.target.value.toUpperCase())}
+                        style={{
+                            padding: '1rem',
+                            fontSize: '2rem',
+                            textAlign: 'center',
+                            borderRadius: '8px',
+                            border: '2px solid var(--color-primary)',
+                            background: '#333',
+                            color: 'white',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.5rem',
+                            width: '100%'
+                        }}
+                        autoFocus
+                    />
+                    <Button
+                        onClick={submitScore}
+                        variant="primary"
+                        disabled={playerName.length === 0}
+                    >
+                        Submit
+                    </Button>
+                </div>
+
+                <Button onClick={onEnd} variant="secondary" style={{ marginTop: '1rem', background: 'transparent', border: 'none', opacity: 0.6 }}>Skip</Button>
             </div>
         );
     }
@@ -163,7 +219,7 @@ const Game = ({ config, onEnd }) => {
                     textAlign: 'center'
                 }}>
                     <h3 style={{ color: 'white', marginBottom: '1rem' }}>Are you giving up?</h3>
-                    <p style={{ color: '#ccc', marginBottom: '2rem' }}>Your highscore will NOT be saved.</p>
+                    <p style={{ color: '#ccc', marginBottom: '2rem' }}>Your score will NOT be saved.</p>
                     <div style={{ display: 'flex', gap: '1rem' }}>
                         <Button
                             onClick={confirmGiveUp}

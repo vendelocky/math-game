@@ -54,14 +54,15 @@ app.get('/api/highscores', (req, res) => {
 });
 
 app.post('/api/highscores', (req, res) => {
-    // Expect: { gameType: 'rounds'|'time', score: number, mode: string, details: string, date: string }
-    const { gameType, score, mode, details } = req.body;
+    // Expect: { gameType: 'rounds'|'time', score: number, mode: string, details: string, date: string, name: string }
+    const { gameType, score, mode, details, name } = req.body;
 
     if (!['rounds', 'time'].includes(gameType)) {
         return res.status(400).json({ error: 'Invalid game type' });
     }
 
     const newEntry = {
+        name: name || 'NON',
         score,
         mode,
         details,
@@ -81,7 +82,8 @@ const io = new Server(server, {
 });
 
 // State
-const rooms = new Map(); // roomId -> { players: [], state: 'waiting'|'playing', round: 0, scores: {}, config: {} }
+// roomId -> { players: [], state: 'waiting'|'playing', round: 0, scores: {}, config: {} }
+const rooms = new Map();
 
 io.on('connection', (socket) => {
     console.log('User connected:', socket.id);

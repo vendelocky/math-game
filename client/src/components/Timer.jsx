@@ -33,7 +33,7 @@ const Timer = ({ duration, onTimeUp, active }) => {
     const percentage = (timeLeft / duration) * 100;
 
     return (
-        <div style={{ width: '100%', maxWidth: '400px', height: '12px', background: '#ddd', borderRadius: '6px', overflow: 'hidden', border: '2px solid #333' }}>
+        <div style={{ width: '100%', height: '12px', background: '#ddd', borderRadius: '6px', overflow: 'hidden', border: '2px solid #333' }}>
             <div
                 style={{
                     height: '100%',

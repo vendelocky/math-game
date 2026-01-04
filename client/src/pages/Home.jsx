@@ -78,7 +78,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                     </div>
 
                     {/* Next Button - Bottom Right */}
-                    <div style={{ position: 'absolute', bottom: '-4rem', right: '1rem' }}>
+                    <div style={{ display: 'flex', marginTop: '3rem' }}>
                         <Button
                             variant="primary"
                             onClick={() => setStep(2)}
@@ -94,7 +94,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                 boxShadow: '0 4px 8px rgba(0,0,0,0.4)'
                             }}
                         >
-                            🡆
+                            NEXT 🡆
                         </Button>
                     </div>
                 </>
@@ -151,7 +151,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                             <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                                 {gameType === 'rounds' && (
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center', width: '100%' }}>
-                                        <label style={{ fontWeight: 'bold' }}>Number of Rounds</label>
+                                        <label style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Number of Rounds</label>
                                         <input
                                             type="number"
                                             min="1"
@@ -173,13 +173,13 @@ const Home = ({ onStart, onShowHighscores }) => {
                                                 color: 'white'
                                             }}
                                         />
-                                        <span style={{ fontSize: '1rem', opacity: 0.6 }}>Max: 1000</span>
+                                        <span style={{ fontSize: '1.2rem', opacity: 0.6 }}>Max: 1000</span>
                                     </div>
                                 )}
 
                                 {gameType === 'time' && (
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center', width: '100%' }}>
-                                        <label style={{ fontWeight: 'bold' }}>Time Limit (Seconds)</label>
+                                        <label style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Time Limit (Seconds)</label>
                                         <input
                                             type="number"
                                             min="10"
@@ -201,7 +201,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                                 color: 'white'
                                             }}
                                         />
-                                        <span style={{ fontSize: '1rem', opacity: 0.6 }}>Max: 3600</span>
+                                        <span style={{ fontSize: '1.2rem', opacity: 0.6 }}>Max: 3600</span>
                                     </div>
                                 )}
                             </div>

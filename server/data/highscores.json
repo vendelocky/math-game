@@ -1,10 +1,23 @@
 {
   "rounds": [
     {
+      "name": "F",
+      "score": 85,
+      "mode": "all",
+      "details": "10 Rounds",
+      "date": "2026-01-04T13:40:40.903Z"
+    },
+    {
       "score": 75,
       "mode": "all",
       "details": "10 Rounds",
       "date": "2026-01-02T16:21:27.080Z"
+    },
+    {
+      "score": 25,
+      "mode": "mul",
+      "details": "10 Rounds",
+      "date": "2026-01-04T13:14:52.101Z"
     },
     {
       "score": 15,
@@ -25,6 +38,12 @@
       "date": "2026-01-02T15:06:52.420Z"
     },
     {
+      "score": 0,
+      "mode": "add",
+      "details": "1 Rounds",
+      "date": "2026-01-04T08:34:21.936Z"
+    },
+    {
       "score": -5,
       "mode": "all",
       "details": "5 Rounds",
@@ -32,6 +51,18 @@
     }
   ],
   "time": [
+    {
+      "score": 140,
+      "mode": "add",
+      "details": "60 Seconds",
+      "date": "2026-01-04T07:59:52.276Z"
+    },
+    {
+      "score": 105,
+      "mode": "all",
+      "details": "60 Seconds",
+      "date": "2026-01-04T07:53:01.141Z"
+    },
     {
       "score": 95,
       "mode": "mul",
@@ -43,6 +74,13 @@
       "mode": "all",
       "details": "10 Seconds",
       "date": "2026-01-02T15:05:17.465Z"
+    },
+    {
+      "name": "FAP",
+      "score": 25,
+      "mode": "div",
+      "details": "10 Seconds",
+      "date": "2026-01-04T13:24:29.103Z"
     },
     {
       "score": -10,
