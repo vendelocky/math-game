@@ -205,36 +205,53 @@ const Game = ({ config, onEnd }) => {
 
             {/* Confirmation Modal */}
             {showExitConfirm && (
-                <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundColor: 'rgba(0,0,0,0.85)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: 100,
-                    borderRadius: '8px',
-                    padding: '1rem',
-                    textAlign: 'center'
-                }}>
-                    <h3 style={{ color: 'white', marginBottom: '1rem' }}>Are you giving up?</h3>
-                    <p style={{ color: '#ccc', marginBottom: '2rem' }}>Your score will NOT be saved.</p>
-                    <div style={{ display: 'flex', gap: '1rem' }}>
-                        <Button
-                            onClick={confirmGiveUp}
-                            style={{ backgroundColor: '#ff4d4d', color: 'white' }}
-                        >
-                            Give Up
-                        </Button>
-                        <Button
-                            onClick={cancelGiveUp}
-                            variant="secondary"
-                        >
-                            No way
-                        </Button>
+                <>
+                    {/* Backdrop */}
+                    <div style={{
+                        position: 'fixed',
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        zIndex: 99
+                    }} />
+
+                    {/* Modal */}
+                    <div style={{
+                        position: 'fixed',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        backgroundColor: '#E0F7FA',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 100,
+                        borderRadius: '25px',
+                        padding: '2rem',
+                        textAlign: 'center',
+                        border: '1px solid rgba(100, 108, 255, 0.2)',
+                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+                        minWidth: '300px',
+                        maxWidth: '90%'
+                    }}>
+                        <h3 style={{ color: 'black', marginBottom: '1rem', fontSize: '1.8rem' }}>Are you giving up?</h3>
+                        <p style={{ color: '#888', marginBottom: '2rem', fontSize: '1.1rem' }}>Your score will NOT be saved.</p>
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <Button
+                                onClick={confirmGiveUp}
+                                style={{ backgroundColor: '#ff4d4d', color: 'white' }}
+                            >
+                                Give Up
+                            </Button>
+                            <Button
+                                onClick={cancelGiveUp}
+                                variant="secondary"
+                            >
+                                No way
+                            </Button>
+                        </div>
                     </div>
-                </div>
+                </>
             )}
         </div>
     );
