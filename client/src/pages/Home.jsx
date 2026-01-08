@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
 import { MODES } from '../engine/MathGenerator';
+import { ArrowLeftIcon } from '../components/Icons';
 
 const Home = ({ onStart, onShowHighscores }) => {
     const [step, setStep] = useState(1);
@@ -70,7 +71,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                         border: mode === m ? '2px solid white' : '2px solid transparent'
                                     }}
                                 >
-                                    <div style={{ fontSize: '2.5rem', lineHeight: '1', marginBottom: '0.5rem' }}>{signs[m]}</div>
+                                    <div style={{ fontSize: '2rem', lineHeight: '1', marginBottom: '0.5rem' }}>{signs[m]}</div>
                                     <span style={{ fontSize: '1rem' }}>{m.toUpperCase()}</span>
                                 </Button>
                             );
@@ -94,7 +95,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                 boxShadow: '0 4px 8px rgba(0,0,0,0.4)'
                             }}
                         >
-                            NEXT 🡆
+                            NEXT
                         </Button>
                     </div>
                 </>
@@ -119,7 +120,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                 }}
                                 title="Back"
                             >
-                                🡄
+                                <ArrowLeftIcon size={30} />
                             </Button>
                         </div>
 

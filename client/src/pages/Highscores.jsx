@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import { MODES } from '../engine/MathGenerator';
+import { ArrowLeftIcon } from '../components/Icons';
 
 const Highscores = ({ onBack }) => {
     const [allScores, setAllScores] = useState([]);
@@ -92,7 +93,9 @@ const Highscores = ({ onBack }) => {
             {/* Header */}
             <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', position: 'relative', top: '0.5rem', minHeight: '50px' }}>
                 <div style={{ position: 'absolute', left: 0 }}>
-                    <Button onClick={onBack} variant="secondary">🡄</Button>
+                    <Button onClick={onBack} variant="secondary">
+                        <ArrowLeftIcon size={30} />
+                    </Button>
                 </div>
             </div>
             <h1 style={{ marginBottom: '1.5rem', fontSize: '1.8rem', color: 'var(--color-primary)' }}>Highscores</h1>

@@ -11,6 +11,7 @@ const Game = ({ config, onEnd }) => {
     const [feedback, setFeedback] = useState(null); // { id, proper }
     const [isGameOver, setIsGameOver] = useState(false);
     const [showExitConfirm, setShowExitConfirm] = useState(false);
+    const [countdown, setCountdown] = useState(3);
 
     const [playerName, setPlayerName] = useState('');
 
@@ -19,7 +20,7 @@ const Game = ({ config, onEnd }) => {
     const timeLimit = config.time || 60; // seconds
 
     const processSelection = (selectedId) => {
-        if (feedback || showExitConfirm) return; // Ignore input during feedback or modal
+        if (feedback || showExitConfirm || countdown > 0) return; // Ignore input during feedback, modal, or countdown
 
         const isCorrect = selectedId === roundData.winnerId;
 
@@ -103,6 +104,13 @@ const Game = ({ config, onEnd }) => {
         setRoundData(generateRound(config.mode, 1));
     }, []);
 
+    useEffect(() => {
+        if (countdown > 0) {
+            const timer = setTimeout(() => setCountdown(countdown - 1), 700);
+            return () => clearTimeout(timer);
+        }
+    }, [countdown]);
+
     if (isGameOver) {
         return (
             <div className="flex-center" style={{ flexDirection: 'column', gap: '2rem', width: '100%', maxWidth: '400px', textAlign: 'center' }}>
@@ -153,7 +161,7 @@ const Game = ({ config, onEnd }) => {
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', fontSize: '1.2rem', fontWeight: 'bold' }}>
                 {config.gameType === 'rounds'
                     ? <span>Round: {roundCount}/{totalRounds}</span>
-                    : <Timer duration={timeLimit} onTimeUp={endGame} active={!isGameOver && !showExitConfirm} />
+                    : <Timer duration={timeLimit} onTimeUp={endGame} active={!isGameOver && !showExitConfirm && countdown === 0} />
                 }
             </div>
 
@@ -180,7 +188,7 @@ const Game = ({ config, onEnd }) => {
                             text={opt.text}
                             state={state}
                             onClick={() => processSelection(opt.id)}
-                            disabled={!!feedback || showExitConfirm}
+                            disabled={!!feedback || showExitConfirm || countdown > 0}
                         />
                     );
                 })}
@@ -252,6 +260,32 @@ const Game = ({ config, onEnd }) => {
                         </div>
                     </div>
                 </>
+            )}
+
+            {/* Start Countdown Overlay */}
+            {countdown > 0 && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    zIndex: 200,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    pointerEvents: 'all'
+                }}>
+                    <div
+                        key={countdown}
+                        style={{
+                            fontSize: '10rem',
+                            color: 'var(--color-primary)',
+                            fontWeight: 'bold',
+                            animation: 'countdownPulse 1s ease-in-out infinite'
+                        }}
+                    >
+                        {countdown}
+                    </div>
+                </div>
             )}
         </div>
     );
