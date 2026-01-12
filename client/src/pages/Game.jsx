@@ -3,6 +3,7 @@ import Card from '../components/Card';
 import Timer from '../components/Timer';
 import Button from '../components/Button';
 import { generateRound } from '../engine/MathGenerator';
+import { soundManager } from '../utils/sound';
 
 const Game = ({ config, onEnd }) => {
     const [roundData, setRoundData] = useState(null);
@@ -28,9 +29,10 @@ const Game = ({ config, onEnd }) => {
 
         if (isCorrect) {
             setScore(prev => prev + 10);
-            // Sound effect here
+            soundManager.playCorrect();
         } else {
             setScore(prev => prev - 5);
+            soundManager.playWrong();
         }
 
         setTimeout(() => {
@@ -53,6 +55,7 @@ const Game = ({ config, onEnd }) => {
 
     const endGame = () => {
         setIsGameOver(true);
+        soundManager.playGameOver();
     };
 
     const submitScore = () => {
@@ -106,6 +109,7 @@ const Game = ({ config, onEnd }) => {
 
     useEffect(() => {
         if (countdown > 0) {
+            soundManager.playCountdown(countdown);
             const timer = setTimeout(() => setCountdown(countdown - 1), 700);
             return () => clearTimeout(timer);
         }

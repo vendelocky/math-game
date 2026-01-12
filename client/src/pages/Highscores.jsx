@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import { MODES } from '../engine/MathGenerator';
 import { ArrowLeftIcon } from '../components/Icons';
+import { soundManager } from '../utils/sound';
 
 const Highscores = ({ onBack }) => {
     const [allScores, setAllScores] = useState([]);
@@ -113,7 +114,11 @@ const Highscores = ({ onBack }) => {
                 {tabs.map(tab => (
                     <button
                         key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
+                        onClick={() => {
+                            soundManager.playClick();
+                            setActiveTab(tab.id)
+                        }
+                        }
                         style={{
                             flex: 1,
                             padding: '0.5rem 0.2rem',
