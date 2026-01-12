@@ -2,6 +2,7 @@ class SoundManager {
     constructor() {
         this.ctx = null;
         this.enabled = true;
+        this.baseVolume = 0.5;
     }
 
     getContext() {
@@ -15,7 +16,7 @@ class SoundManager {
         return this.ctx;
     }
 
-    playTone(freq, duration, type = 'sine', volume = 0.1) {
+    playTone(freq, duration, type = 'sine', volume = this.baseVolume) {
         const ctx = this.getContext();
         if (!ctx) return;
 
@@ -47,7 +48,7 @@ class SoundManager {
         osc.frequency.setValueAtTime(400, ctx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
 
-        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.setValueAtTime(this.baseVolume, ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
 
         osc.connect(gain);
@@ -68,7 +69,7 @@ class SoundManager {
             const gain = ctx.createGain();
 
             osc.frequency.setValueAtTime(freq, now + i * 0.1);
-            gain.gain.setValueAtTime(0.1, now + i * 0.1);
+            gain.gain.setValueAtTime(this.baseVolume, now + i * 0.1);
             gain.gain.linearRampToValueAtTime(0, now + i * 0.1 + 0.1);
 
             osc.connect(gain);
@@ -91,7 +92,7 @@ class SoundManager {
         osc.frequency.setValueAtTime(150, ctx.currentTime);
         osc.frequency.linearRampToValueAtTime(100, ctx.currentTime + 0.3);
 
-        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.setValueAtTime(this.baseVolume, ctx.currentTime);
         gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
 
         osc.connect(gain);
@@ -112,7 +113,7 @@ class SoundManager {
             const gain = ctx.createGain();
 
             osc.frequency.setValueAtTime(freq, now + i * 0.3);
-            gain.gain.setValueAtTime(0.1, now + i * 0.3);
+            gain.gain.setValueAtTime(this.baseVolume, now + i * 0.3);
             gain.gain.linearRampToValueAtTime(0, now + i * 0.3 + 0.25);
 
             osc.connect(gain);
@@ -126,7 +127,7 @@ class SoundManager {
     playCountdown(count) {
         // 3... 2... 1... (Higher pitch for 1)
         const freq = count === 1 ? 880 : 440;
-        this.playTone(freq, 0.2, 'sine', 0.1);
+        this.playTone(freq, 0.2, 'sine', this.baseVolume);
     }
 }
 

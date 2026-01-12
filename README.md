@@ -1,8 +1,9 @@
 # Math Game Project
 
+**This project was created using Google Antigravity. 90% vibe coding, 10% manual interfention**
+
 This project is a web and mobile-compatible math learning game designed for kids. It features various game modes including addition, subtraction, multiplication, division, and combination challenges.
 
-**This project was created using Google Antigravity.**
 
 ## Tech Stack
 
