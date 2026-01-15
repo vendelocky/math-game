@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import Game from './pages/Game';
 import Lobby from './pages/Lobby';
 import Highscores from './pages/Highscores';
+import { SplashScreen as NativeSplash } from '@capacitor/splash-screen';
+import SplashScreen from './components/SplashScreen';
 
 function App() {
   const [screen, setScreen] = useState('home'); // home, game, lobby, multi-game, highscores
   const [gameConfig, setGameConfig] = useState(null);
   const [multiData, setMultiData] = useState(null); // { fullRoundData, roomId }
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    NativeSplash.hide();
+  }, []);
 
   const startGame = (config) => {
     setGameConfig(config);
@@ -58,6 +65,8 @@ function App() {
       {screen === 'multi-game' && <MultiplayerGame initialData={multiData} onEnd={toHome} />}
 
       {screen === 'highscores' && <Highscores onBack={toHome} />}
+
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
     </div>
   );
 }

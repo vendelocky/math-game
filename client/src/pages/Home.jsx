@@ -163,6 +163,11 @@ const Home = ({ onStart, onShowHighscores }) => {
                                                 if (val > 1000) setRoundCount(1000);
                                                 else setRoundCount(e.target.value);
                                             }}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter') {
+                                                    e.target.blur();
+                                                }
+                                            }}
                                             style={{
                                                 padding: '1rem',
                                                 borderRadius: '8px',
@@ -190,6 +195,11 @@ const Home = ({ onStart, onShowHighscores }) => {
                                                 const val = parseInt(e.target.value);
                                                 if (val > 3600) setTimeLimit(3600);
                                                 else setTimeLimit(e.target.value);
+                                            }}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter') {
+                                                    e.target.blur();
+                                                }
                                             }}
                                             style={{
                                                 padding: '1rem',

@@ -93,6 +93,7 @@ const Lobby = ({ onStartGame }) => {
                                 min="1" max="1000"
                                 value={roundCount}
                                 onChange={(e) => setRoundCount(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && e.target.blur()}
                                 style={{ width: '80px', padding: '5px' }}
                             />
                         ) : (
@@ -101,6 +102,7 @@ const Lobby = ({ onStartGame }) => {
                                 min="10" max="3600"
                                 value={timeLimit}
                                 onChange={(e) => setTimeLimit(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && e.target.blur()}
                                 style={{ width: '80px', padding: '5px' }}
                             />
                         )}
@@ -122,6 +124,7 @@ const Lobby = ({ onStartGame }) => {
                 placeholder="Enter Name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && e.target.blur()}
                 style={{ padding: '0.5rem', fontSize: '1.2rem', borderRadius: '8px', border: '2px solid #ccc' }}
             />
             <input
@@ -129,6 +132,7 @@ const Lobby = ({ onStartGame }) => {
                 placeholder="Room ID (e.g. 123)"
                 value={roomId}
                 onChange={(e) => setRoomId(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && e.target.blur()}
                 style={{ padding: '0.5rem', fontSize: '1.2rem', borderRadius: '8px', border: '2px solid #ccc' }}
             />
             <Button onClick={handleJoin} disabled={!username || !roomId}>JOIN ROOM</Button>

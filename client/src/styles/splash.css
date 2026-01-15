@@ -1,0 +1,62 @@
+.splash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #E0F7FA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease-out, visibility 0.8s;
+}
+
+.splash-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.brand-container {
+    text-align: center;
+    animation: fadeInScale 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brand-logo {
+    max-width: 80%;
+    max-height: 40vh;
+    height: auto;
+    object-fit: contain;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Subtle pulse for a "heartwarming" feel */
+.brand-container {
+    animation: fadeInScale 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        heartbeat 3s ease-in-out infinite 1.2s;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
