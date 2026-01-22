@@ -61,6 +61,22 @@ This project is a web and mobile-compatible math learning game designed for kids
    ```
 5. Open your browser and navigate to the URL shown in the terminal (usually `http://localhost:5173`).
 
+### Step 3: Run on Android (Capacitor)
+1. Build the web project:
+   ```bash
+   cd client
+   npm run build
+   ```
+2. Sync the web assets with the Android project:
+   ```bash
+   npx cap sync android
+   ```
+3. Open the project in Android Studio:
+   ```bash
+   npx cap open android
+   ```
+4. In Android Studio, wait for Gradle to finish indexing, then select your device/emulator and click the **Run** button (green play icon).
+
 ## Multiplayer
 
 This application is designed to support multiplayer functionality using Socket.io to allow users to play against each other in real-time.
