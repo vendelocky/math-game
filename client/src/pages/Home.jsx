@@ -24,12 +24,12 @@ const Home = ({ onStart, onShowHighscores }) => {
     };
 
     return (
-        <div className="flex-center" style={{ flexDirection: 'column', width: '100%', height: '100%', position: 'relative', padding: '1rem' }}>
+        <div className="flex-center" style={{ flexDirection: 'column', width: '100%', height: '100%', position: 'relative' }}>
 
             {/* Step 1: Mode Selection */}
             {step === 1 && (
                 <>
-                    <div style={{ position: 'absolute', top: '0.1rem', right: '1rem', zIndex: 10 }}>
+                    <div style={{ position: 'absolute', top: '0.1rem', right: '0.1rem', zIndex: 10 }}>
                         <Button
                             onClick={onShowHighscores}
                             variant="secondary"
@@ -39,7 +39,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                         </Button>
                     </div>
 
-                    <div className="text-center" style={{ marginTop: '4rem', marginBottom: '2rem' }}>
+                    <div className="text-center" style={{ marginTop: '6rem', marginBottom: '2rem' }}>
                         <h1 style={{ fontSize: '1.8rem', color: 'var(--color-primary)', marginBottom: '0.5rem' }}>
                             WHICH IS BIGGER?
                         </h1>
@@ -107,17 +107,10 @@ const Home = ({ onStart, onShowHighscores }) => {
                     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', maxWidth: '400px' }}>
 
                         {/* Back Button - Top Left */}
-                        <div style={{ position: 'absolute', top: '0.5rem', left: '1rem' }}>
+                        <div style={{ position: 'absolute' }}>
                             <Button
                                 onClick={() => setStep(1)}
                                 variant="secondary"
-                                style={{
-                                    padding: '0.5rem',
-                                    fontSize: '2rem',
-                                    lineHeight: '1',
-                                    background: 'transparent',
-                                    border: 'none'
-                                }}
                                 title="Back"
                             >
                                 <ArrowLeftIcon size={30} />
