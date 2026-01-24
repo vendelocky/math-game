@@ -107,6 +107,11 @@
     transform: none;
 }
 
+.btn-sm {
+    font-size: var(--font-size-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
 /* Misc Utilities specific to components */
 @keyframes shake {
     0% {

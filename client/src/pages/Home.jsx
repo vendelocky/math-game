@@ -130,6 +130,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                     variant={gameType === 'rounds' ? 'primary' : 'secondary'}
                                     onClick={() => setGameType('rounds')}
                                     style={{ flex: 1 }}
+                                    className="btn-sm"
                                 >
                                     Rounds
                                 </Button>
@@ -137,6 +138,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                     variant={gameType === 'time' ? 'primary' : 'secondary'}
                                     onClick={() => setGameType('time')}
                                     style={{ flex: 1 }}
+                                    className="btn-sm"
                                 >
                                     Time Attack
                                 </Button>
@@ -144,7 +146,7 @@ const Home = ({ onStart, onShowHighscores }) => {
 
                             <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                                 {gameType === 'rounds' && (
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center', width: '100%' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
                                         <label style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Number of Rounds</label>
                                         <input
                                             type="number"
@@ -177,7 +179,7 @@ const Home = ({ onStart, onShowHighscores }) => {
                                 )}
 
                                 {gameType === 'time' && (
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center', width: '100%' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
                                         <label style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Time Limit (Seconds)</label>
                                         <input
                                             type="number"

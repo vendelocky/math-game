@@ -92,7 +92,7 @@ const Highscores = ({ onBack }) => {
         <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
 
             {/* Header */}
-            <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', position: 'relative', top: '0.5rem', minHeight: '50px' }}>
+            <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', position: 'relative', top: '0.4rem', minHeight: '50px' }}>
                 <div style={{ position: 'absolute', left: 0 }}>
                     <Button onClick={onBack} variant="secondary">
                         <ArrowLeftIcon size={30} />
